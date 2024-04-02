@@ -32,8 +32,8 @@
           "type": "python",
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
-          "foreground": "#906cff", // Color to match your taste
-          "background": "#1d3c91", // Color to match your taste
+          "foreground": "#906cff",
+          "background": "#1d3c91",
           "properties": {
             "display_virtual_env": true
           },
@@ -80,20 +80,18 @@
       "type": "prompt",
       "alignment": "right",
       "segments": [
-      {
-        "type": "executiontime",
-        "style": "powerline",
-        "powerline_symbol": "",
-        "foreground": "#ffffff",
-        "background": "#8800dd",
-        "template": " <#fefefe></> {{ .FormattedMs }} ",
-        "properties": {
-          "threshold": 500,
-          "style": "austin",
-          "always_enabled": true
-        }
-        },
         {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "#777e9d",
+          "background": "#404456",
+          "template": "<#404456,transparent>\ue0b6</> {{ .FormattedMs }}\u202f<transparent,#404456>\ue0b2</>",
+          "properties": {
+            "always_enabled": true,
+            "style": "austin"
+          }
+        },
+	{
           "type": "nx",
           "style": "powerline",
           "powerline_symbol": "\ue0b2",
@@ -130,23 +128,22 @@
           "template": " \ue71e {{ .Major }} "
         },
         {
-        "type": "battery",
-        "style": "powerline",
-        "powerline_symbol": "",
-        "invert_powerline": true,
-        "foreground": "#193549",
-        "background": "#ffeb3b",
-        "background_templates": [
-          "{{if eq \"Charging\" .State.String}}#40c4ff{{end}}",
-          "{{if eq \"Discharging\" .State.String}}#ff916f{{end}}",
-          "{{if eq \"Full\" .State.String}}#4caf50{{end}}"
-        ],
-        "template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }} ",
-        "properties": {
-          "discharging_icon": " ",
-          "charging_icon": " ",
-          "charged_icon": " "
-        }
+          "type": "battery",
+          "style": "powerline",
+          "foreground": "#193549",
+          "background": "#ffeb3b",
+          "color": "#ff916f",
+          "background_templates": [
+            "{{if eq \"Charging\" .State.String}}{{end}}",
+            "<#acaeb5<#404456,transparent></>{{if eq \"Discharging\" .State.String}}{{end}}",
+            "{{if eq \"Full\" .State.String}}{{end}}"
+          ],
+          "template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }} ",
+          "properties": {
+            "discharging_icon": " ",
+            "charging_icon": " ",
+            "charged_icon": " "
+          }
         },
         {
           "type": "time",
