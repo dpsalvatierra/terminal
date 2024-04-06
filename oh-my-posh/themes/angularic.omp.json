@@ -83,9 +83,9 @@
         {
           "type": "executiontime",
           "style": "plain",
-          "foreground": "#777e9d",
-          "background": "#404456",
-          "template": "<#404456,transparent>\ue0b6</> {{ .FormattedMs }}\u202f<transparent,#404456>\ue0b2</>",
+          "foreground": "#ffffff",
+          "background": "#1d3c91",
+          "template": "<#1d3c91,transparent>\ue0b6</> {{ .FormattedMs }}\u202f<transparent,#1d3c91>\ue0b2</>",
           "properties": {
             "always_enabled": true,
             "style": "austin"
@@ -130,12 +130,13 @@
         {
           "type": "battery",
           "style": "powerline",
-          "foreground": "#193549",
-          "background": "#ffeb3b",
-          "color": "#ff916f",
+          "powerline_symbol": "\ue0b2",
+          "invert_powerline": true,
+          "foreground": "#1d3c91",
+          "background": "#dde4f8",
           "background_templates": [
             "{{if eq \"Charging\" .State.String}}{{end}}",
-            "<#acaeb5<#404456,transparent></>{{if eq \"Discharging\" .State.String}}{{end}}",
+            "{{if eq \"Discharging\" .State.String}}{{end}}",
             "{{if eq \"Full\" .State.String}}{{end}}"
           ],
           "template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }} ",
@@ -149,7 +150,7 @@
           "type": "time",
           "style": "diamond",
           "invert_powerline": true,
-          "foreground": "#777e9d",
+          "foreground": "#ffffff",
           "background": "#404456",
           "leading_diamond": "\ue0b2",
           "trailing_diamond": "\ue0b4",
